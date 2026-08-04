@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#eaf3ff">
+<title>玉里老师 · 管理工作台</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<!-- 手机外壳（桌面端居中显示，手机端自动全屏） -->
+<div class="phone-frame">
+  <div class="phone-screen">
+
+    <!-- 顶部状态栏（模拟 iOS） -->
+    <div class="status-bar">
+      <span class="sb-time" id="sbTime">12:14</span>
+      <span class="sb-right">
+        <span class="sb-signal">●●●●●</span>
+        <span class="sb-wifi">▾</span>
+        <span class="sb-batt">▮<b>98</b></span>
+      </span>
+    </div>
+
+    <!-- 应用顶部栏 -->
+    <header class="app-bar">
+      <button class="burger" data-act="drawer" aria-label="菜单">☰</button>
+      <div class="app-bar-title" data-act="nav:#/home">
+        <span class="logo">🍎</span>
+        <span class="title-text">玉里老师</span>
+        <span class="title-petal">✿</span>
+      </div>
+      <div class="app-bar-right">
+        <span class="sync-dot sync-off" id="syncDot" title="多端同步状态">未开启</span>
+        <button class="icon-btn" data-act="notice" title="通知">🔔<span class="badge" id="noticeBadge" hidden>0</span></button>
+        <button class="icon-btn" data-act="settings" title="设置">⚙️</button>
+      </div>
+    </header>
+
+    <!-- 保存状态横幅：环境无法永久保存时显示 -->
+    <div id="persistBanner" class="persist-banner" hidden></div>
+
+    <!-- 主内容区（路由渲染到这里） -->
+    <main id="app" class="phone-main"></main>
+
+    <!-- 底部 tabbar（5 个一级入口，常驻，与侧边导航固定顺序一致） -->
+    <nav class="tabbar" id="tabbar">
+      <button class="tab-item" data-act="nav:#/home" data-sec="home"><span class="ti">🏠</span><span class="tn">首页</span></button>
+      <button class="tab-item" data-act="nav:#/life/dash" data-sec="life"><span class="ti">🥗</span><span class="tn">生活</span></button>
+      <button class="tab-item" data-act="nav:#/review/dash" data-sec="review"><span class="ti">🗂️</span><span class="tn">工作复盘</span></button>
+      <button class="tab-item" data-act="nav:#/side/dash" data-sec="side"><span class="ti">📕</span><span class="tn">副业</span></button>
+      <button class="tab-item" data-act="nav:#/research/dash" data-sec="research"><span class="ti">🔬</span><span class="tn">教研</span></button>
+      <button class="tab-item" data-act="nav:#/zones/chinese" data-sec="zones"><span class="ti">🏛️</span><span class="tn">工作区</span></button>
+    </nav>
+
+  </div>
+</div>
+
+<!-- 抽屉遮罩 -->
+<div class="drawer-mask" id="drawerMask"></div>
+
+<!-- 左侧抽屉 -->
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <div class="drawer-logo">🍎</div>
+    <div class="drawer-name">玉里老师工作台</div>
+    <div class="drawer-sub">教师干货 · 带班 · 考研 三不误 ✨</div>
+  </div>
+  <div class="drawer-body" id="drawerBody">
+    <!-- 由 app.js 渲染 -->
+  </div>
+  <div class="drawer-foot">
+    <span>🌿</span>
+    <span class="df-text">把每一天过成想要的样子</span>
+    <span>🌿</span>
+  </div>
+</aside>
+
+<div id="modal-root"></div>
+<div id="toast-root" class="toast-root"></div>
+
+<script src="assets/js/store.js"></script>
+<script src="assets/js/schema.js"></script>
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/pages_life.js"></script>
+<script src="assets/js/pages_side.js"></script>
+<script src="assets/js/pages_review.js"></script>
+<script src="assets/js/pages_research.js"></script>
+<script src="assets/js/pages_zones.js"></script>
+<script src="assets/js/pages_home.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
